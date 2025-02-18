@@ -34,5 +34,6 @@ Normal use:
 ![normal](https://github.com/user-attachments/assets/b432ef30-c47c-4e4d-aac3-cff4137925b3)
 
 over Tor:
-![1](https://github.com/user-attachments/assets/96c60bc1-b4fb-4d86-b198-b28f75d6b08e)
+![tor](https://github.com/user-attachments/assets/5d281b20-fea8-444e-974b-822dc765e82a)
+
 
