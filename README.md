@@ -28,4 +28,11 @@ I used the 10million weblist. You can download others if you want to from the li
 Credits to: https://github.com/PeterDaveHello/top-1m-domains
 for the domainlists.
 
-The script is swtiching every 1 to 4 seconds from page and sometimes it throws some errors but this is normal. Don't worry not every websites works anymore, and i am not planning to filter 10 million websites.
+The script is swtiching every 1 to 4 seconds (You can change this in the script) from page and sometimes it throws some errors but this is normal. Don't worry not every websites works anymore, and i am not planning to filter 10 million websites.
+
+Normal use:
+![normal](https://github.com/user-attachments/assets/b432ef30-c47c-4e4d-aac3-cff4137925b3)
+
+over Tor:
+![1](https://github.com/user-attachments/assets/96c60bc1-b4fb-4d86-b198-b28f75d6b08e)
+
