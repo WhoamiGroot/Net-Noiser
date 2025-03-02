@@ -47,25 +47,53 @@ You can use a Python script to validate URLs. Use the requests library to check 
 
 Here's a sample Python script for validating URLs:
 ```
-    import requests
+import requests
+from urllib.parse import urlparse
 
-    def is_valid_url(url):
-        try:
-            response = requests.get(url, timeout=5)
-            return response.status_code == 200
-        except requests.exceptions.RequestException:
+def add_scheme(url):
+    """Add 'https://' to the URL if no scheme is provided."""
+    parsed_url = urlparse(url)
+    if not parsed_url.scheme:
+        url = 'https://' + url  # Default to https://
+    return url
+
+def is_valid_url(url):
+    """Check if the URL is valid and accessible."""
+    url = add_scheme(url)  # Ensure the URL has a scheme
+    try:
+        response = requests.get(url, timeout=5)  # Adjust the timeout value if needed
+        if response.status_code == 200:
+            return True
+        else:
+            print(f"Invalid URL (status {response.status_code}): {url}")
             return False
+    except requests.exceptions.RequestException as e:
+        print(f"Error with URL {url}: {e}")
+        return False
 
-    with open('website.txt', 'r') as file:
-        valid_urls = []
+def validate_urls(input_file, output_file):
+    """Read URLs from a file, check if valid, and save valid ones."""
+    valid_urls = []
+
+    with open(input_file, 'r') as file:
         for line in file:
             url = line.strip()
-            if is_valid_url(url):
-                valid_urls.append(url)
+            if url:  # Make sure it's not an empty line
+                if is_valid_url(url):
+                    valid_urls.append(url)
+                else:
+                    print(f"Skipping invalid URL: {url}")
 
-    with open('valid_urls.txt', 'w') as out_file:
+    with open(output_file, 'w') as out_file:
         for url in valid_urls:
             out_file.write(url + '\n')
+    print(f"Valid URLs saved to {output_file}")
+
+if __name__ == "__main__":
+    input_file = 'website.txt'  # Change to your file name
+    output_file = 'valid_urls.txt'  # This is where the valid URLs will be saved
+    validate_urls(input_file, output_file)
+
 ```
 
 This will check each URL in website.txt, and only valid (reachable) URLs will be written to valid_urls.txt.
