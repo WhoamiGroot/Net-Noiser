@@ -41,11 +41,11 @@ If you want to sort out valid URLs and non malicious URLS,
 Here's how you can approach it:
 Step-by-Step Guide:
 
-    Check for Valid URLs:
+Check for Valid URLs:
 
-        You can use a Python script to validate URLs. Use the requests library to check if a URL is valid or reachable.
+You can use a Python script to validate URLs. Use the requests library to check if a URL is valid or reachable.
 
-        Here's a sample Python script for validating URLs:
+Here's a sample Python script for validating URLs:
 ```
     import requests
 
